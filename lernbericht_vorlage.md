@@ -6,7 +6,7 @@ Shayanthan Ravindran
 Wir befinden uns im Modul 183. In diesem Modul lernen wir über mögliche Hacking angriffe und vertiefen unser gelerntes Wissen über JSF.
 
 ## Was habe ich gelernt?
-In diesem Lernbericht möchte ich über die "Session Pinning" Methode sprechen, die zu den vielen Hacking-Methoden gehört, die ich gelernt habe.
+In diesem Lernbericht möchte ich über die "Session Pinning" Methode ansprechen, die zu den vielen Hacking-Methoden gehört, die ich gelernt habe.
 
 ## Beschreibung
 Bei Session Fixation handelt es sich um einen Angriff, bei dem ein Angreifer in der Lage ist, die Sitzung eines Benutzers zu übernehmen. Dieser Angriff nutzt Schwachstellen in der Art und Weise aus, wie bestimmte Webanwendungen die Sitzungs-IDs verwalten. Insbesondere kann es vorkommen, dass bei der Authentifizierung eines Benutzers keine neue Sitzungs-ID erstellt wird, sodass es möglich ist, eine vorhandene Sitzungs-ID zu verwenden. Der Angreifer kann sich also eine gültige Sitzungsnummer beschaffen und versuchen, den Benutzer dazu zu bringen, sich mit dieser Nummer anzumelden. Anschließend kann er die vom Benutzer bestätigte Sitzung durch Kenntnis der verwendeten Sitzungsnummer übernehmen.
