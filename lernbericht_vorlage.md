@@ -1,58 +1,46 @@
 # Lern-Bericht
-Khang Cung
+Shayanthan Ravindran
 
 ## Einleitung
 
-Wir befinden uns im Modul 133. In diesem Modul arbeiten wir mit JSF.
+Wir befinden uns im Modul 183. In diesem Modul lernen wir über mögliche Hacking angriffe und vertiefen unser gelerntes Wissen über JSF.
 
 ## Was habe ich gelernt?
-Ich habe gelernt, wie man mithilfe von "ManagedBean" Daten von einer xhtml Seite auf ein anderen weiterleiten kann.
+In diesem Lernbericht möchte ich über die "Session Pinning" Methode sprechen, die zu den vielen Hacking-Methoden gehört, die ich gelernt habe.
 
 ## Beschreibung
+Bei Session Fixation handelt es sich um einen Angriff, bei dem ein Angreifer in der Lage ist, die Sitzung eines Benutzers zu übernehmen. Dieser Angriff nutzt Schwachstellen in der Art und Weise aus, wie bestimmte Webanwendungen die Sitzungs-IDs verwalten. Insbesondere kann es vorkommen, dass bei der Authentifizierung eines Benutzers keine neue Sitzungs-ID erstellt wird, sodass es möglich ist, eine vorhandene Sitzungs-ID zu verwenden. Der Angreifer kann sich also eine gültige Sitzungsnummer beschaffen und versuchen, den Benutzer dazu zu bringen, sich mit dieser Nummer anzumelden. Anschließend kann er die vom Benutzer bestätigte Sitzung durch Kenntnis der verwendeten Sitzungsnummer übernehmen.
 
-
-* Eine textliche Beschreibung
-
-JSF kann man als MVC framework verstehen. Das Model ist Facelet, das View ist xhtml und der Controller ist ManagedBean. 
-Beispiel:
-Der Benutzer will sein Namen auf der 2. Seite anzeigen lassen. 
-So wird der xhtml Code auf der 1. Seite aussehhen:
-![image](https://user-images.githubusercontent.com/69575003/187132608-79fcfd37-cb03-4705-a257-1091dbebbefe.png)
-```
-Ihr Nachname: <h:inputText value="#{helloManagedBean.lastName}"/>
-<h:commandButton value="Submit" action="seite2.xhtml"/>
-```
-So wird der ManagedBean aussehen: 
-```java
-private String lastName;
-public String getLastName() {
-return lastName;
-}
-public void setLastName(String lastName) {
-this.lastName = lastName;
-}
-```
-So wird der xhtml Code auf der 2. Seite aussehhen:
-
-![image](https://user-images.githubusercontent.com/69575003/187132637-e2185d74-79b5-479d-889a-565dadc54a4e.png)
 
 ```
-Ihr Nachname: <h:outputLabel value="#{helloManagedBean.lastName}"/> 
+http://localhost:8080/InsecureApp/faces/secured/index.xhtml;jsessionid=72c5b926347ed646e82d475132dc
 ```
+Wenn ein böser Hacker bsp. in den Besitz von diesem Session Link gelangen könnte, nachdem der Benutzer sich angemeldet hat, könnte er Zugriff auf Daten des Benutzers erlangen. Dieses Problem kann jedoch gelöst werden. 
 
-Auf der 1. Seite wird der Benutzer seinen Namen in einem Textfeld eingeben müssen. Danach auf die Submit Link klicken, welches ihn auf der Seite 2 weiterleitet.
-Dazwischen wird das Programm durch die HelloManagedBean Controller laufen. Im Controller wird die obrigen Code durchlaufen. Der Benutzers Name wird im Variable lastName gespeichert.
-Auf der 2. Seite wird die oben gespeicherte Variable wieder mit #{ControllerName.Variable} aufgerufen. 
+Die Standardmethode besteht darin, die Sitzungs-ID unmittelbar nach der Anmeldung des Benutzers zu ändern, um die meisten Schwachstellen bei der Sitzungsfixierung zu beseitigen.
+
+Zusätzlich sollten Sitzungs-IDs nach einer bestimmten Zeit ablaufen. Dadurch bleibt dem Angreifer nur ein kleines Zeitfenster, in dem er die feste Sitzungs-ID nutzen kann. 
+
+![image](https://www.checkmarx.com/wp-content/uploads/2016/02/SF.jpg)
+
+
+![Sessionid](https://user-images.githubusercontent.com/89385736/207733172-7a4fcd7d-5d7a-4650-b000-e874f3f79832.JPG)
+
+
 
 ## Verifikation
 
-Am kurzen Erklärungstext zum ManagedBean, kann man erkennen, dass ich verstanden habe, wie man Eingaben von einer Seite auf der anderen anzeigen kann. 
-Der Code beinhaltet, die wichtigsten Stellen, zum dies wiederherzustellen.
+Aus dem kurzen Erklärungstext zum Session Pinning geht hervor, dass ich das Verfahren verstanden habe, bei dem eine unsichere Seite ein Passwort vom Benutzer oder lieber vom Administrator erhält.
 
 # Reflektion zum Arbeitsprozess
 
-Ich bin mit meiner Arbeit bisher in JSF zufrieden. Ich lerne nicht gerne, neue Sprachen, weil ich bisher schon viele gelernt habe. Aber bei JSF war es eine Ausnahme, weil wir immernoch mit HTML und Java programmieren, jedoch wird es nur bei der HTML Seite anders. Dies war mir eine Herausforderung am Anfang, aber nach der Zeit verlief es mir gut.
+Ich bin mit meiner Arbeit nicht so zufrieden. Da ich die ersten zwei Male vom Unterricht verpasst habe, war mir der Einstieg ein wenig schwer. Ich musste viel nacharbeiten und kam mit dem Tempo nicht ganz mit. Ich muss mir klare Ziele setzen für die nächsten Module oder auch bei verpasstem Unterricht. 
 
-Ich habe zur Beginn dieses Projektes sehr viel Mühe gehabt, überhaupt die Vorlage Page zu starten. Wir hatten meiner Meinung nach zu wenig Zeit gehabt, die nötigen JDKs und Netbeans etc zu installieren.
+👍 Das Gute daran war, dass ich viele neue Begriffe lernen konnte, was mir das Verständnis in diesem Modul ein wneig vereinfachte.
 
-**VBV**: Ich werde bei neueren Aufträge einen kurzen Pseudo Code schreiben, damit ich schneller Fehlern beheben kann
+👎 Ich hatte lange für diesen Auftrag gebraucht, da ich die ersten zwei Male vom Unterricht verpasst habe und somit den Einstieg verpasst habe.
+
+**VBV**: Ich werde bei neueren Aufträgen mehr zuhören und bei Unklarheiten den Lehrer fragen. Durch diesen Verbesserungsvorschlag werde ich beim nächsten Mal sicherlich gut vorankommen.
+
+
+
